@@ -11,6 +11,7 @@ public class UseSquirrelAi {
 
     public static void main(String[] args) throws Exception {
         StartWechatApp.GETStartWechatApp();
+
     }
 
 }

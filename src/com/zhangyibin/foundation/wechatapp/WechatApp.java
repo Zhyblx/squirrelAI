@@ -11,6 +11,7 @@ import com.blade.kit.json.JSON;
 import com.blade.kit.json.JSONArray;
 import com.blade.kit.json.JSONObject;
 
+import com.zhangyibin.aifunction.BaiduFanyi;
 import com.zhangyibin.aifunction.SquirrelAiRobot;
 import com.zhangyibin.foundation.databaseservice.InsertService;
 import com.zhangyibin.foundation.util.AddressBook;
@@ -593,10 +594,15 @@ public class WechatApp {
 
 //                        ReplyMessage = "手机不在身边，请稍后联系。谢谢";
                         ReplyMessage= SquirrelAiRobot.SquirrelRobot(receiveMessages);//通过机器人自动回复消息
-                        webwxsendmsg(ReplyMessage, msg.getString("FromUserName")); // 程序完成会话消息回复
-                        LOGGER.info("自动回复 " + ReplyMessage);
+                        webwxsendmsg(ReplyMessage, msg.getString("FromUserName")); // 程序完成会话消息回复(中文回复)
+                        String EnglishReplyMessage=BaiduFanyi.getBaiduFanyi(ReplyMessage);
+                        webwxsendmsg(EnglishReplyMessage, msg.getString("FromUserName")); // 程序完成会话消息回复(回复)
+
+                        LOGGER.info("自动回复(中文) " + ReplyMessage);
+                        LOGGER.info("自动回复(英文) " + EnglishReplyMessage);
                         // 存储当前给好友回复的消息到数据库
                         InsertService.getInsertService(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()),"自动回复",ReplyMessage);
+                        InsertService.getInsertService(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()),"自动回复",EnglishReplyMessage);
 
                     }
                 } else if (msgType == 3) {
