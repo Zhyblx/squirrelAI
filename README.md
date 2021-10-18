@@ -1,6 +1,11 @@
 # squirrelAI
 
 
+    squirrelAI项目已经不在维护并且这是之前写的代码结构也比较凌乱。所以，基于此项目重新维护了wechatspecter。
+
+[wechatspecter项目，请点击查阅](https://github.com/Zhyblx/wechatspecter)
+
+
 ## 项目说明
 
 ----
@@ -331,7 +336,7 @@ b)application(应用层):
 <td>SpecialUsersList</td>
 <td>getSpecialUsersList()</td>
 <td>/</td>
-<td>List<String></td>
+<td> List </td>
 <td>账号枚举列表类(不回复消息名单)</td>
 </tr>
 

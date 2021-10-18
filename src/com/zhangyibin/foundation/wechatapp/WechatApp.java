@@ -681,6 +681,7 @@ public class WechatApp {
                                 LOGGER.info("[*] 你在手机上玩微信被我发现了 %d 次"+ playWeChat);
                                 webwxsync();
                             } else if (arr[1] == 3) {
+                                
                             } else if (arr[1] == 0) {
                                 try {
                                     Thread.sleep(3000);
